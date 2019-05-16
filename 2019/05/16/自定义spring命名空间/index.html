@@ -96,13 +96,17 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nullzc&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="##自定义spring命名空间 ###Schema-based XML组成12345&amp;lt;nullzc:myconfig id=&quot;myInterface&quot; interface=&quot;com.mixky.goodscore.common.MyInterface&quot;/&amp;gt;&amp;lt;!-- nullzc就是namespace 明确的逻辑分类 --&amp;gt;&amp;lt;!-- myconfig是element 明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义spring命名空间">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/自定义spring命名空间/index.html">
 <meta property="og:site_name" content="Nullzc&#39;s blog">
+<meta property="og:description" content="##自定义spring命名空间 ###Schema-based XML组成12345&amp;lt;nullzc:myconfig id=&quot;myInterface&quot; interface=&quot;com.mixky.goodscore.common.MyInterface&quot;/&amp;gt;&amp;lt;!-- nullzc就是namespace 明确的逻辑分类 --&amp;gt;&amp;lt;!-- myconfig是element 明">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-16T13:06:25.419Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nullzc&#39;s blog">
+<meta name="twitter:title" content="自定义spring命名空间">
+<meta name="twitter:description" content="##自定义spring命名空间 ###Schema-based XML组成12345&amp;lt;nullzc:myconfig id=&quot;myInterface&quot; interface=&quot;com.mixky.goodscore.common.MyInterface&quot;/&amp;gt;&amp;lt;!-- nullzc就是namespace 明确的逻辑分类 --&amp;gt;&amp;lt;!-- myconfig是element 明">
 
 
 
@@ -110,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/自定义spring命名空间/">
 
 
 
@@ -120,7 +124,7 @@
   };
 </script>
 
-  <title>Nullzc's blog</title>
+  <title>自定义spring命名空间 | Nullzc's blog</title>
   
 
 
@@ -168,8 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -207,7 +210,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -269,9 +272,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -303,10 +306,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/16/自定义spring命名空间/" class="post-title-link" itemprop="url">自定义spring命名空间</a>
+          <h1 class="post-title" itemprop="name headline">自定义spring命名空间
+
               
             
           </h1>
@@ -370,9 +371,7 @@
       
 
       
-        
-          
-            <p>##自定义spring命名空间</p>
+        <p>##自定义spring命名空间</p>
 <p>###Schema-based XML组成<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">nullzc:myconfig</span> <span class="attr">id</span>=<span class="string">"myInterface"</span> <span class="attr">interface</span>=<span class="string">"com.mixky.goodscore.common.MyInterface"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- nullzc就是namespace 明确的逻辑分类 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- myconfig是element 明确的过程语义 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- id、interface是attributes 简明的配置选项 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 更多参考：https://blog.csdn.net/youhan26/article/details/46822743 --&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>###自定义扩展步骤</p>
 <p>####1、定义一个XML schema用来描述自定义的element<br>定义如下，文件名称最好与自定义的namespace保持一致，放在项目的META-INF目录下，本文件名称为nullzc.xsd<br>文件说明：<br>1、xmlns=”<a href="http://nullzc.com/schema/nullzc&quot;" target="_blank" rel="noopener">http://nullzc.com/schema/nullzc&quot;</a> : 定义默认命名空间<br>2、targetNamespace=”<a href="http://nullzc.com/schema/nullzc&quot;" target="_blank" rel="noopener">http://nullzc.com/schema/nullzc&quot;</a> : 命名空间所对应的url，在xml配置文件中使用<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" standalone="no"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xsd:schema</span> <span class="attr">xmlns:xsd</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns:beans</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">xmlns</span>=<span class="string">"http://nullzc.com/schema/nullzc"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">targetNamespace</span>=<span class="string">"http://nullzc.com/schema/nullzc"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:import</span> <span class="attr">namespace</span>=<span class="string">"http://www.w3.org/XML/1998/namespace"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:import</span> <span class="attr">namespace</span>=<span class="string">"http://www.springframework.org/schema/beans"</span> <span class="attr">schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans/spring-beans.xsd"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:annotation</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">    		&lt;![CDATA[ File Description Information ]]&gt;</span><br><span class="line">    	<span class="tag">&lt;/<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:annotation</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:complexType</span> <span class="attr">name</span>=<span class="string">"myConfig"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xsd:attribute</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"xsd:string"</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">xsd:annotation</span>&gt;</span></span><br><span class="line">		    	<span class="tag">&lt;<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">		    		&lt;![CDATA[ The unique identifier for a bean(required) ]]&gt;</span><br><span class="line">		    	<span class="tag">&lt;/<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;/<span class="name">xsd:annotation</span>&gt;</span>    	</span><br><span class="line">		<span class="tag">&lt;/<span class="name">xsd:attribute</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">xsd:attribute</span> <span class="attr">name</span>=<span class="string">"interface"</span> <span class="attr">type</span>=<span class="string">"xsd:string"</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">xsd:annotation</span>&gt;</span></span><br><span class="line">		    	<span class="tag">&lt;<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">		    		&lt;![CDATA[ Attribute Description Information ]]&gt;</span><br><span class="line">		    	<span class="tag">&lt;/<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;/<span class="name">xsd:annotation</span>&gt;</span>    	</span><br><span class="line">		<span class="tag">&lt;/<span class="name">xsd:attribute</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">xsd:attribute</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"xsd:string"</span> <span class="attr">default</span>=<span class="string">"nullzc"</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">xsd:annotation</span>&gt;</span></span><br><span class="line">		    	<span class="tag">&lt;<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">		    		&lt;![CDATA[ Attribute Description Information ]]&gt;</span><br><span class="line">		    	<span class="tag">&lt;/<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;/<span class="name">xsd:annotation</span>&gt;</span>    	</span><br><span class="line">		<span class="tag">&lt;/<span class="name">xsd:attribute</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:complexType</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">xsd:element</span> <span class="attr">name</span>=<span class="string">"myconfig"</span> <span class="attr">id</span>=<span class="string">"myConfig"</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">xsd:annotation</span>&gt;</span></span><br><span class="line">	    	<span class="tag">&lt;<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">	    		&lt;![CDATA[ Element Description Information ]]&gt;</span><br><span class="line">	    	<span class="tag">&lt;/<span class="name">xsd:documentation</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">xsd:annotation</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">xsd:element</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">xsd:schema</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -383,8 +382,6 @@
 <p>####4、使用<br>在xml配置文件中如下配置，引入xmlns:nullzc=”<a href="http://nullzc.com/schema/nullzc&quot;命名空间，" target="_blank" rel="noopener">http://nullzc.com/schema/nullzc&quot;命名空间，</a><br>xsi:schemaLocation中追加<br><a href="http://nullzc.com/schema/nullzc" target="_blank" rel="noopener">http://nullzc.com/schema/nullzc</a> <a href="http://nullzc.com/schema/nullzc.xsd" target="_blank" rel="noopener">http://nullzc.com/schema/nullzc.xsd</a><br>然后配置即可，id即被实例化的MyConfigBean对象<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">	   <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">	   <span class="attr">xmlns:nullzc</span>=<span class="string">"http://nullzc.com/schema/nullzc"</span></span></span><br><span class="line"><span class="tag">	   <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://nullzc.com/schema/nullzc http://nullzc.com/schema/nullzc.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">nullzc:myconfig</span> <span class="attr">id</span>=<span class="string">"myConfigBean"</span> <span class="attr">interface</span>=<span class="string">"com.mixky.goodscore.common.MyInterface"</span>/&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>更多功能可参考spring-aop、dubbo源码</p>
 
-          
-        
       
     </div>
 
@@ -407,176 +404,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/Spring-Extend/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="nullzc">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nullzc's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/14/Spring-Extend/" class="post-title-link" itemprop="url">Spring Extend</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/05/14/Spring-Extend/" rel="next" title="Spring Extend">
+                <i class="fa fa-chevron-left"></i> Spring Extend
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-14 14:16:54" itemprop="dateCreated datePublished" datetime="2019-05-14T14:16:54+08:00">2019-05-14</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Bearbeitet am</span>
-                
-                <time title="Geändert am: 2019-05-16 21:06:28" itemprop="dateModified" datetime="2019-05-16T21:06:28+08:00">2019-05-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>#Spring Extend</p>
-<p>##ClassPathXmlApplicationContext</p>
-<blockquote>
-<p>重写ClassPathXmlApplicationContext的<code>initPropertySources()</code>方法，可以强制Spring启动的时候校验环境变量<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>##PropertyEditorSupport</p>
-<blockquote>
-<p>重写PropertyEditorSupport的<code>setAsText</code>方法</p>
-</blockquote>
-<p>##ApplicationEventMulticaster,ApplicationListener</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -586,306 +435,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/14/hexo命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="nullzc">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nullzc's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/14/hexo命令/" class="post-title-link" itemprop="url">hexo命令</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-14 11:28:27 / Geändert am: 11:58:14" itemprop="dateCreated datePublished" datetime="2019-05-14T11:28:27+08:00">2019-05-14</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h1><blockquote>
-<p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #部署到GitHub<br>hexo help  # 查看帮助<br>hexo version  #查看Hexo的版本</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="nullzc">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nullzc's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/13/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-
-              
-                
-              
-
-              <time title="Erstellt: 2019-05-13 10:18:42" itemprop="dateCreated datePublished" datetime="2019-05-13T10:18:42+08:00">2019-05-13</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1082,6 +640,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -1097,6 +659,8 @@
 
   
 
+
+  
 
 
   
