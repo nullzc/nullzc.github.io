@@ -189,7 +189,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
+    <button aria-label="تغییر ناوبری">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -217,7 +217,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>صفحه اصلی</a>
 
   </li>
         
@@ -234,7 +234,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>بایگانی</a>
 
   </li>
 
@@ -270,6 +270,152 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/java代理浅谈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="nullzc">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nullzc's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/17/java代理浅谈/" class="post-title-link" itemprop="url">java代理浅谈</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">نوشته شده در</span>
+              
+
+              
+                
+              
+
+              <time title="ایجاد شده: 2019-05-17 15:42:11 / تغییر یافته: 16:10:49" itemprop="dateCreated datePublished" datetime="2019-05-17T15:42:11+08:00">2019-05-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="java代理模式"><a href="#java代理模式" class="headerlink" title="java代理模式"></a>java代理模式</h1><h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Job</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** 找工作 */</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">seekJob</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//------------------------------------------------------</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Programmer</span> <span class="keyword">implements</span> <span class="title">Job</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">seekJob</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(String.format(<span class="string">"我叫%s，是一名java程序员，想寻求一份展示自己才华的工作"</span>, name));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//------------------------------------------------------</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Headhunter</span> <span class="keyword">implements</span> <span class="title">Job</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> Programmer programmer;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Headhunter</span><span class="params">(Programmer programmer)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.programmer = programmer;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">seekJob</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.err.println(String.format(<span class="string">"我是猎聘公司的猎头，这是%s的简历"</span>, name));</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Thread.sleep(<span class="number">20</span>);<span class="comment">// 确保打印顺序</span></span><br><span class="line">		&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		programmer.seekJob(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Programmer <span class="title">getProgrammer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> programmer;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setProgrammer</span><span class="params">(Programmer programmer)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.programmer = programmer;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//------------------------------------------------------</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Job job = <span class="keyword">new</span> Headhunter(<span class="keyword">new</span> Programmer());</span><br><span class="line">		job.seekJob(<span class="string">"nullzc"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>我是猎聘公司的猎头，这是nullzc的简历</code><br>我叫nullzc，是一名java程序员，想寻求一份展示自己才华的工作</p>
+</blockquote>
+<h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -324,19 +470,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">نوشته شده در</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-16 21:29:52 / Modified: 23:20:37" itemprop="dateCreated datePublished" datetime="2019-05-16T21:29:52+08:00">2019-05-16</time>
+              <time title="ایجاد شده: 2019-05-16 21:29:52" itemprop="dateCreated datePublished" datetime="2019-05-16T21:29:52+08:00">2019-05-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">ویرایش شده در</span>
+                
+                <time title="تغییر یافته: 2019-05-23 17:06:36" itemprop="dateModified" datetime="2019-05-23T17:06:36+08:00">2019-05-23</time>
               
             
           </span>
@@ -377,7 +535,7 @@
 <p>较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。<br>java虚拟机中每条线程都需要有一个独立的程序计数器，来保证线程切换后能恢复到正确的执行位置，各条线程之间计数器互不影响，独立存储，我们称这类内存区域为<code>线程私有的</code>内存。<br><strong><code>java虚拟机规范中唯一一块没有规定OOM情况的区域</code></strong></p>
 </blockquote>
 <h3 id="java虚拟机栈（Java-Virtual-Machine-Stacks）"><a href="#java虚拟机栈（Java-Virtual-Machine-Stacks）" class="headerlink" title="java虚拟机栈（Java Virtual Machine Stacks）"></a>java虚拟机栈（Java Virtual Machine Stacks）</h3><blockquote>
-<p>虚拟机栈描述的Java方法执行的内存模型:每个方法执行的同时都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口等每个方法从调用到完成的过程就对应着每个栈帧在虚拟机中从入栈到出栈的过程<br><code>线程私有，生命周期与线程相同</code><br>1、如果线程请求的栈深度大于虚拟机所允许的深度，将会抛出<code>StackOverflowError</code>；<br>2、如果虚拟机栈可以动态扩展，在扩展时无法申请到足够的内存，抛出<code>OOM</code>；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛异常示例</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.oom;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args: -Xss 128K</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nullzc</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackSOF</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stackLength = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		stackLength ++;</span><br><span class="line">		stackLeak();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JavaVMStackSOF oom = <span class="keyword">new</span> JavaVMStackSOF();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			oom.stackLeak();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.err.println(String.format(<span class="string">"stack length:[%s]"</span>, oom.stackLength));</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------------------------------------------------------</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.oom;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args: -Xss 2M</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nullzc</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">endlessLoop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeakByThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">					endlessLoop();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">			thread.start();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		JavaVMStackOOM oom = <span class="keyword">new</span> JavaVMStackOOM();</span><br><span class="line">		<span class="comment">//windows机器可能会卡死</span></span><br><span class="line"><span class="comment">//		oom.stackLeakByThread();</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>虚拟机栈描述的Java方法执行的内存模型:每个方法执行的同时都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口等每个方法从调用到完成的过程就对应着每个栈帧在虚拟机中从入栈到出栈的过程<br><code>线程私有，生命周期与线程相同</code><br>1、如果线程请求的栈深度大于虚拟机所允许的深度，将会抛出<code>StackOverflowError</code>；<br>2、如果虚拟机栈可以动态扩展，在扩展时无法申请到足够的内存，抛出<code>OOM</code>；<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛异常示例</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.oom;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args: -Xss 128K</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nullzc</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackSOF</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stackLength = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		stackLength ++;</span><br><span class="line">		stackLeak();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		JavaVMStackSOF oom = <span class="keyword">new</span> JavaVMStackSOF();</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			oom.stackLeak();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">			System.err.println(String.format(<span class="string">"stack length:[%s]"</span>, oom.stackLength));</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//------------------------------------------------------</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.oom;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args: -Xss 2M</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nullzc</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">endlessLoop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeakByThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">					endlessLoop();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">			thread.start();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		JavaVMStackOOM oom = <span class="keyword">new</span> JavaVMStackOOM();</span><br><span class="line">		<span class="comment">//windows机器可能会卡死</span></span><br><span class="line"><span class="comment">//		oom.stackLeakByThread();</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="本地方法栈（Native-Method-Stack）"><a href="#本地方法栈（Native-Method-Stack）" class="headerlink" title="本地方法栈（Native Method Stack）"></a>本地方法栈（Native Method Stack）</h3><blockquote>
 <p>与虚拟机栈基本相似，为虚拟机使用的Native方法使用。</p>
@@ -391,7 +549,7 @@
 <h3 id="运行时常量池（Runtime-Constant-Pool）"><a href="#运行时常量池（Runtime-Constant-Pool）" class="headerlink" title="运行时常量池（Runtime Constant Pool）"></a>运行时常量池（Runtime Constant Pool）</h3><blockquote>
 <p>方法区的一部分，用于存放编译器生成的各种字面量、符号引用和直接引用，具备<code>动态性</code>，String的intern()方法可以将新的常量放入池中，当无法再申请到内存时将抛出<code>OOM</code>。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛异常示例</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.oom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args: -XX:PermSize=10M -XX:MaxPermSize=10M</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nullzc</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RuntimeConstantPoolOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//使用List保持常量引用，避免FULL GC回收常量池行为</span></span><br><span class="line">		List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			list.add(String.valueOf(i++).intern());</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h3 id="直接内存（Direct-Memory）"><a href="#直接内存（Direct-Memory）" class="headerlink" title="直接内存（Direct Memory）"></a>直接内存（Direct Memory）</h3><p>虚拟机运行时数据区以外的内存，JDK1.4中新加了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在java堆中的DirectByteBuffer对象作为这块内存的引用进行操作以提高性能，会出现<code>OOM</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛异常示例</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.oom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args: -Xmx 20M --XX:MaxDirectMemorySize=10M</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nullzc</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DirectMemoryOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> _1MB = <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                <span class="comment">//使用unsafe分配本机内存</span></span><br><span class="line">		Field unsafeField = Unsafe.class.getDeclaredFields()[<span class="number">0</span>];</span><br><span class="line">		unsafeField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">		Unsafe unsafe = (Unsafe) unsafeField.get(<span class="keyword">null</span>);</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			unsafe.allocateMemory(_1MB);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="直接内存（Direct-Memory）"><a href="#直接内存（Direct-Memory）" class="headerlink" title="直接内存（Direct Memory）"></a>直接内存（Direct Memory）</h3><p>虚拟机运行时数据区以外的内存，JDK1.4中新加了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在java堆中的DirectByteBuffer对象作为这块内存的引用进行操作以提高性能，会出现<code>OOM</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抛异常示例</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.oom;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * VM Args: -Xmx 20M --XX:MaxDirectMemorySize=10M</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> nullzc</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DirectMemoryOOM</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> _1MB = <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                <span class="comment">//使用unsafe分配本机内存</span></span><br><span class="line">		Field unsafeField = Unsafe.class.getDeclaredFields()[<span class="number">0</span>];</span><br><span class="line">		unsafeField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">		Unsafe unsafe = (Unsafe) unsafeField.get(<span class="keyword">null</span>);</span><br><span class="line">		<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">			unsafe.allocateMemory(_1MB);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -486,14 +644,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">نوشته شده در</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-16 21:05:36 / Modified: 21:15:17" itemprop="dateCreated datePublished" datetime="2019-05-16T21:05:36+08:00">2019-05-16</time>
+              <time title="ایجاد شده: 2019-05-16 21:05:36 / تغییر یافته: 21:15:17" itemprop="dateCreated datePublished" datetime="2019-05-16T21:05:36+08:00">2019-05-16</time>
             
 
             
@@ -636,14 +794,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">نوشته شده در</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-14 14:16:54" itemprop="dateCreated datePublished" datetime="2019-05-14T14:16:54+08:00">2019-05-14</time>
+              <time title="ایجاد شده: 2019-05-14 14:16:54" itemprop="dateCreated datePublished" datetime="2019-05-14T14:16:54+08:00">2019-05-14</time>
             
 
             
@@ -658,9 +816,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Edited on</span>
+                  <span class="post-meta-item-text">ویرایش شده در</span>
                 
-                <time title="Modified: 2019-05-16 21:06:28" itemprop="dateModified" datetime="2019-05-16T21:06:28+08:00">2019-05-16</time>
+                <time title="تغییر یافته: 2019-05-16 21:06:28" itemprop="dateModified" datetime="2019-05-16T21:06:28+08:00">2019-05-16</time>
               
             
           </span>
@@ -800,14 +958,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">نوشته شده در</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-14 11:28:27 / Modified: 11:58:14" itemprop="dateCreated datePublished" datetime="2019-05-14T11:28:27+08:00">2019-05-14</time>
+              <time title="ایجاد شده: 2019-05-14 11:28:27 / تغییر یافته: 11:58:14" itemprop="dateCreated datePublished" datetime="2019-05-14T11:28:27+08:00">2019-05-14</time>
             
 
             
@@ -945,14 +1103,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">نوشته شده در</span>
               
 
               
                 
               
 
-              <time title="Created: 2019-05-13 10:18:42" itemprop="dateCreated datePublished" datetime="2019-05-13T10:18:42+08:00">2019-05-13</time>
+              <time title="ایجاد شده: 2019-05-13 10:18:42" itemprop="dateCreated datePublished" datetime="2019-05-13T10:18:42+08:00">2019-05-13</time>
             
 
             
@@ -1081,8 +1239,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">پست ها</span>
                   </a>
                 </div>
               
@@ -1139,7 +1297,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">قدرت گرفته از <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1147,7 +1305,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+  <div class="theme-info">پوسته – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
 
 
 
