@@ -189,7 +189,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="تغییر ناوبری">
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -217,7 +217,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>صفحه اصلی</a>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
 
   </li>
         
@@ -234,7 +234,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>بایگانی</a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
 
   </li>
 
@@ -324,19 +324,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-05-17 15:42:11 / تغییر یافته: 16:10:49" itemprop="dateCreated datePublished" datetime="2019-05-17T15:42:11+08:00">2019-05-17</time>
+              <time title="Erstellt: 2019-05-17 15:42:11" itemprop="dateCreated datePublished" datetime="2019-05-17T15:42:11+08:00">2019-05-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2019-06-10 14:28:21" itemprop="dateModified" datetime="2019-06-10T14:28:21+08:00">2019-06-10</time>
               
             
           </span>
@@ -376,7 +388,19 @@
 <blockquote>
 <p><code>我是猎聘公司的猎头，这是nullzc的简历</code><br>我叫nullzc，是一名java程序员，想寻求一份展示自己才华的工作</p>
 </blockquote>
-<h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2>
+<h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2><blockquote>
+<p>JDK代理关键是<code>Proxy.newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler handler)</code>方法，该方法会根据指定的参数动态创建代理对象。<br>1、loader：代理对象的类加载器；<br>2、interfaces：代理对象需要实现的接口，可多个接口；<br>3、handler：代理程序位置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> Job job;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Job job)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.job = job;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.err.println(String.format(<span class="string">"欢迎应聘者%s登场"</span>, args[<span class="number">0</span>]));</span><br><span class="line">		<span class="keyword">return</span> method.invoke(job, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setJob</span><span class="params">(Job job)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.job = job;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//------------------------------------------------------</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		jdkProxy();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">jdkProxy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Salesperson salesperson = <span class="keyword">new</span> Salesperson();</span><br><span class="line">		Job job = (Job) Proxy.newProxyInstance(Job.class.getClassLoader(), <span class="keyword">new</span> Class&lt;?&gt;[]&#123;Job.class&#125;, <span class="keyword">new</span> MyInvocationHandler(salesperson));</span><br><span class="line">		job.seekJob(<span class="string">"snow"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>JDK动态代理基于接口，会在运行时动态生成一个继承直送接口的代理类实现动态代理。</p>
+</blockquote>
+<h2 id="CGLib-Code-Generation-Library-动态代理"><a href="#CGLib-Code-Generation-Library-动态代理" class="headerlink" title="CGLib(Code Generation Library)动态代理"></a>CGLib(Code Generation Library)动态代理</h2><blockquote>
+<p>基于ASM的字节码生成库，运行时对字节码进行修改和动态生成。<br>需要实现一个MethodInterceptor，方法调用会被转发到该类的intercept()方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cglib.proxy.MethodInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cglib.proxy.MethodProxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMethodInterceptor</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object object, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.err.println(String.format(<span class="string">"有请%s进行自我介绍"</span>, args[<span class="number">0</span>]));</span><br><span class="line">		<span class="keyword">return</span> proxy.invokeSuper(object, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//------------------------------------------------------</span></span><br><span class="line"><span class="keyword">package</span> com.example.demo.proxy;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cglib.proxy.Enhancer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyProxy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		cglibProxy();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cglibProxy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">		enhancer.setSuperclass(Programmer.class);</span><br><span class="line"><span class="comment">//		enhancer.setSuperclass(Salesperson.class);</span></span><br><span class="line">		enhancer.setCallback(<span class="keyword">new</span> MyMethodInterceptor());</span><br><span class="line">		Job job = (Job) enhancer.create();</span><br><span class="line">		job.seekJob(<span class="string">"snow"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>CGLib是通过生成被代理对象的子类来实现动态代理，所以要求被代理的对象不能是final的。</p>
+</blockquote>
+
           
         
       
@@ -470,14 +494,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-05-16 21:29:52" itemprop="dateCreated datePublished" datetime="2019-05-16T21:29:52+08:00">2019-05-16</time>
+              <time title="Erstellt: 2019-05-16 21:29:52" itemprop="dateCreated datePublished" datetime="2019-05-16T21:29:52+08:00">2019-05-16</time>
             
 
             
@@ -492,9 +516,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="تغییر یافته: 2019-05-23 17:06:36" itemprop="dateModified" datetime="2019-05-23T17:06:36+08:00">2019-05-23</time>
+                <time title="Geändert am: 2019-05-23 17:06:36" itemprop="dateModified" datetime="2019-05-23T17:06:36+08:00">2019-05-23</time>
               
             
           </span>
@@ -644,14 +668,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-05-16 21:05:36 / تغییر یافته: 21:15:17" itemprop="dateCreated datePublished" datetime="2019-05-16T21:05:36+08:00">2019-05-16</time>
+              <time title="Erstellt: 2019-05-16 21:05:36 / Geändert am: 21:15:17" itemprop="dateCreated datePublished" datetime="2019-05-16T21:05:36+08:00">2019-05-16</time>
             
 
             
@@ -794,14 +818,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-05-14 14:16:54" itemprop="dateCreated datePublished" datetime="2019-05-14T14:16:54+08:00">2019-05-14</time>
+              <time title="Erstellt: 2019-05-14 14:16:54" itemprop="dateCreated datePublished" datetime="2019-05-14T14:16:54+08:00">2019-05-14</time>
             
 
             
@@ -816,9 +840,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">ویرایش شده در</span>
+                  <span class="post-meta-item-text">Bearbeitet am</span>
                 
-                <time title="تغییر یافته: 2019-05-16 21:06:28" itemprop="dateModified" datetime="2019-05-16T21:06:28+08:00">2019-05-16</time>
+                <time title="Geändert am: 2019-05-16 21:06:28" itemprop="dateModified" datetime="2019-05-16T21:06:28+08:00">2019-05-16</time>
               
             
           </span>
@@ -958,14 +982,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-05-14 11:28:27 / تغییر یافته: 11:58:14" itemprop="dateCreated datePublished" datetime="2019-05-14T11:28:27+08:00">2019-05-14</time>
+              <time title="Erstellt: 2019-05-14 11:28:27 / Geändert am: 11:58:14" itemprop="dateCreated datePublished" datetime="2019-05-14T11:28:27+08:00">2019-05-14</time>
             
 
             
@@ -1103,14 +1127,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">نوشته شده در</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="ایجاد شده: 2019-05-13 10:18:42" itemprop="dateCreated datePublished" datetime="2019-05-13T10:18:42+08:00">2019-05-13</time>
+              <time title="Erstellt: 2019-05-13 10:18:42" itemprop="dateCreated datePublished" datetime="2019-05-13T10:18:42+08:00">2019-05-13</time>
             
 
             
@@ -1240,7 +1264,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">پست ها</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -1297,7 +1321,7 @@
 </div>
 
 
-  <div class="powered-by">قدرت گرفته از <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
@@ -1305,7 +1329,7 @@
 
 
 
-  <div class="theme-info">پوسته – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+  <div class="theme-info">Design – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
 
 
 
